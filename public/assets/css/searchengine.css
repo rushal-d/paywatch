@@ -1,0 +1,163 @@
+body{
+    background: #f5f5f5 !important;
+}
+
+.paywatch-search-bar>span {
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.paywatch-search-bar #autoComplete {width: 90%;border: 1px solid #c2cfd6;}
+
+.paywatch-search-bar {
+    margin: 2em 0em;
+}
+
+.paywatch-search-bar {
+    position: relative;
+}
+
+.paywatch-search-bar #autoComplete{
+    background-position: 99% center;
+    padding: 0 2rem 0 1rem;
+}
+
+.paywatch-search-bar  ul#autoComplete_list {
+    width: 100%;
+    position: absolute !important;
+}
+
+.paywatch-search-bar  .autoComplete_result {
+    width: 100%;
+    max-width: 84%;
+    margin: 0px auto;
+    padding: 10px;
+}
+
+.paywatch-search-bar li.no_result {
+    width: 100%;
+    max-width: 84%;
+    margin: 0px auto;
+    padding: 10px;
+    text-align:left;
+    border: .05rem solid #e3e3e3;
+    list-style: none;
+    font-size: 1.1rem;
+    color: #ff7147;
+    transition: all .1s ease-in-out;
+    background-color: #fff;
+
+}
+
+.paywatch-search-bar #autoComplete::placeholder {
+    color: rgba(255, 122, 122, 0.8);
+    transition: all 0.3s ease;
+}
+
+.chip a {
+    color: #342033;
+}
+
+.chip a:hover{
+    text-decoration: none;
+}
+
+.chip:hover {
+    background: #f2f2f3;
+    transition: 0.3s all ease-in;
+}
+
+.chip a:hover{
+    text-decoration: none;
+    transition: 0.3s all ease-in;
+}
+
+.chip {
+    align-items: center;
+    background: #ffffff;
+    border-radius: 5rem;
+    display: inline-flex;
+    display: -ms-inline-flexbox;
+    -ms-flex-align: center;
+    font-size: 1.2em;
+    margin: .1rem;
+    max-width: 320px;
+    overflow: hidden;
+    padding: .4rem .6rem;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.chip .avatar {
+    margin-left: -.4rem;
+    margin-right: .2rem;
+}
+.avatar.avatar-sm {
+    font-size: .6rem;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+.avatar {
+    background: #4c9689;
+    border-radius: 50%;
+    color: rgba(255,255,255,.85);
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 300;
+    height: 1.6rem;
+    line-height: 1.25;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
+    width: 1.6rem;
+}
+
+.avatar[data-initial]::before {
+    color: currentColor;
+    content: attr(data-initial);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+}
+
+
+.paywatch-quick-actions {
+    margin-bottom: 2em;
+}
+
+.paywatch-staff-quick-actions{
+    padding:1.5em;
+}
+
+.search-staff-box .selectize-control.single {
+    width: 92%;
+    font-size: 14px;
+}
+
+
+.search-staff-box .selectize-input>input{
+    text-align: left !important;
+    padding: 5px 5px !important;
+    width: 100% !important;
+}
+
+.search-staff-box .suggestions {
+    text-align: left;
+    padding:5px;
+}
+
+.paywatch-staff-quick-actions-btn-groups a {
+    margin: 4px;
+}
+
+
+.search-staff-box .selectize-input.full {
+    background-color: #fff;
+    text-align: left !important;
+    padding: 5px;
+}

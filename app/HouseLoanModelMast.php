@@ -1,0 +1,59 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Nicolaslopezj\Searchable\SearchableTrait;
+
+class HouseLoanModelMast extends Model
+{
+    use SearchableTrait;
+    use SoftDeletes;
+    protected $table = 'trans_house_loan';
+    protected $primaryKey = 'house_id';
+
+    protected $searchable = [
+        'columns' => [
+            'trans_house_loan.staff_central_id' => 10,
+            'staff_main_mast.name_eng' => 10
+        ],
+        /*search by join table ->use table name*/
+        'joins' => [
+            'staff_main_mast' => ['trans_house_loan.staff_central_id', 'staff_main_mast.id'],
+        ],
+
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        if (!Session::get('role')) {
+            static::addGlobalScope('staff_central_id', function (Builder $builder) {
+                $branch_id = Auth::user()->branch_id;
+                $staff_ids = StafMainMastModel::where('branch_id', $branch_id)->pluck('id')->toArray();
+                $builder->whereIn('staff_central_id', $staff_ids);
+            });
+        }
+
+    }
+
+    public function staff()
+    {
+        return $this->belongsTo('App\StafMainMastModel', 'staff_central_id');
+    }
+
+    public function houseLoanTransaction()
+    {
+        return $this->hasMany(HouseLoanTransactionLog::class, 'house_id');
+    }
+
+    public function houseLoanDiffIncomes()
+    {
+        return $this->hasMany('\App\HouseLoanDiffIncome', 'house_loan_id');
+    }
+
+}
